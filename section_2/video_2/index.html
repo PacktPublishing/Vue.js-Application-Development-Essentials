@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            template: "<div id='app'><span v-bind:id='myId' v-once>{{hello}}</span> <button v-bind:disabled='true'>button disabled</button> <span>{{ number + 2 }}</span> <p v-if='userExist'>user exist</p> <p v-else-if='number == 2'>user not exist</p> <a v-bind:href='href'>link</a><a :href='href'>short syntax link</a> <div v-on:click='onClickMethod'>click</div> <div @click='onClickMethod'>short syntax click</div> <div v-for='person in persons'> <div>{{ person.name }}</div> </div> <div v-for='prop in player'> <div>{{ prop }}</div> </div> </div>",
+            data: function () {
+                return {
+                    userExist: false,
+                    number: 1,
+                    myId: 'id2',
+                    hello: 'Hello World',
+                    persons: [
+                        {
+                            name: 'Bart'
+                        },
+                        {
+                            name: 'Joe'
+                        }],
+                    player: {
+                        name: 'Bart',
+                        age: 27,
+                        hobby: 'football'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
