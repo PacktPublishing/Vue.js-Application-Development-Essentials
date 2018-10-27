@@ -1,20 +1,26 @@
 <template>
     <div id="app">
         <div>
+            <!-- adding toggleShow method handler on click event -->
             <button v-on:click="toggleShow">toggle show</button>
+            <!-- adding changeTransition method handler and passing fade value on click event -->
             <button v-on:click="changeTransition('fade')">fade</button>
+            <!-- adding changeTransition method handler and passing fade-slow value on click event -->
             <button v-on:click="changeTransition('fade-slow')">fade-slow</button>
+            <!-- adding changeTransition method handler and passing fade-superslow' value on click event -->
             <button v-on:click="changeTransition('fade-superslow')">fade-superslow</button>
         </div>
+        <!-- creating app transition component and passing transitionName and show attributes via v-bind -->
         <app-transition v-bind:name="transitionName" v-bind:show="show"/>
     </div>
 </template>
 
 <script>
     import Vue from "vue";
-
+    // app-transition component implementation
     Vue.component("app-transition", {
         props: ["name", "show"],
+        // creating transition component with attributes
         template: "<transition v-if='show' v-bind:name='name'><span>{{name}}</span></transition>"
     });
 
@@ -32,6 +38,7 @@
                 this.show = !this.show
             },
             changeTransition: function (name) {
+                // setting name to transitionName app data
                 this.transitionName = name;
             }
         }

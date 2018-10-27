@@ -1,12 +1,18 @@
 <template>
     <div id="app">
+        <!-- adding toggleShow handler on click event -->
         <button v-on:click="toggleShow">toggle show</button>
+        <!-- creating transition component with attributes -->
         <transition appear name="mytransition">
+            <!-- displaying app-home component if show data is true -->
             <app-home v-if="show" key="my-transition-key"/>
+            <!-- displaying app-about component if show data is false -->
             <app-about v-else key="my-hello-key"/>
         </transition>
         <br>
+        <!-- creating transition component with attributes -->
         <transition appear name="myanimation" enter-class="myClass">
+            <!-- displaying p element when show data is true -->
             <p v-if="show">Hello animation</p>
         </transition>
     </div>
@@ -14,11 +20,11 @@
 
 <script>
     import Vue from "vue";
-
+    // app-home component implementation
     Vue.component("app-home", {
         template: "<div>home</div>"
     })
-
+    // app-home component implementation
     Vue.component("app-about", {
         template: "<div>about</div>"
     })

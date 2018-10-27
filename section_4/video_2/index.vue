@@ -1,8 +1,12 @@
 <template>
     <div id="app">
+        <!-- adding addANumber method handler to click event -->
         <button v-on:click="addANumber">add a number</button>
+        <!-- adding reverseNumbers method handler to click event -->
         <button v-on:click="reverseNumbers">reverse numbers</button>
+        <!-- creating transition-group component with attributes -->
         <transition-group name="mytransition">
+            <!-- iterating over numbers and creating span element -->
             <span v-for="number in numbers" v-bind:key="number" class="item">{{number}}</span>
         </transition-group>
     </div>
@@ -20,9 +24,11 @@
         },
         methods: {
             addANumber: function () {
+                // adding random parsed number to the numbers array
                 this.numbers.push(parseInt(Math.random() * 80))
             },
             reverseNumbers: function () {
+                // reversing numbers array
                 this.numbers.reverse();
             }
         }
